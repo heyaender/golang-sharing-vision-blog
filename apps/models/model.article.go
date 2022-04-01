@@ -15,7 +15,7 @@ func CreateArticle(article *schemas.Article) *gorm.DB {
 func GetAllArticle(limit int, offset int) []schemas.Article {
 	articles := []schemas.Article{}
 	databases.DB.
-		Select("aritcle_id, title, content, category, created_date, updated_date, status").
+		Select("id, title, content, category, created_date, updated_date, status, author_name").
 		Limit(limit).
 		Offset(offset).
 		Find(&articles)
@@ -23,12 +23,23 @@ func GetAllArticle(limit int, offset int) []schemas.Article {
 		return articles
 }
 
-func GetArticleByID(ArticleID string) (schemas.Article, *gorm.DB) {
+func GetArticleByID(ID string) (schemas.Article, *gorm.DB) {
 	var article schemas.Article
 	result := databases.DB.
-		Select("aritcle_id, title, content, category, created_date, updated_date, status").
+		Select("articles.id, articles.title, articles.content, articles.category, articles.created_date, articles.status").
 		Joins("Author").
-		Where("aritcle_id = ?", ArticleID).
+		Where("articles.id = ?", ID).
+		Find(&article)
+
+	return article, result
+}
+
+func GetArticleByStatus(Status string) (schemas.Article, *gorm.DB) {
+	var article schemas.Article
+	result := databases.DB.
+		Select("id, title, content, category, created_date, updated_date, status, author_id").
+		Joins("Author").
+		Where("status = ?", Status).
 		Find(&article)
 
 	return article, result
@@ -37,7 +48,7 @@ func GetArticleByID(ArticleID string) (schemas.Article, *gorm.DB) {
 func CheckArticle(ArticleID string) bool {
 	var article schemas.Article
 	databases.DB.First(&article, ArticleID)
-	if article.ArticleID == 0 {
+	if article.ID == 0 {
 		return false
 	}
 	return true

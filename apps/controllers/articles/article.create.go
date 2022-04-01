@@ -36,16 +36,11 @@ func CreateArticle(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	if article.AuthorName == "" {
-		helpers.JSONErrorResponse(w, http.StatusBadRequest, "Author is required")
-		return
-	}
-
 	result := models.CreateArticle(&article)
 	if result.Error != nil {
 		helpers.JSONErrorResponse(w, http.StatusInternalServerError, "Internal Server Error : can't create article")
 		return
 	}
 
-	helpers.JSONSuccessResponse(w, article, "Article Created")
+	helpers.JSONSuccessResponse(w, article, "Article Created at "+article.CreatedDate.String())
 }

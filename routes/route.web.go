@@ -25,6 +25,7 @@ func Route() *mux.Router {
 	Route.HandleFunc("/article/{id}", articles.GetArticleByID).Methods("OPTIONS", "GET")
 	Route.HandleFunc("/article/{id}", articles.UpdateArticle).Methods("OPTIONS", "PUT")
 	Route.HandleFunc("/article/{id}", articles.DeleteArticle).Methods("OPTIONS", "DELETE")
+	Route.HandleFunc("/articles_status/{status}", articles.GetArticleByStatus).Methods("OPTIONS", "GET")
 
 	return Route
 }

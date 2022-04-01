@@ -32,7 +32,7 @@ func GetAllArticle(w http.ResponseWriter, r *http.Request) {
 		}
 	}
 
-	articls := models.GetAllArticle(limit, offset)
-	helpers.JSONSuccessResponse(w, articls, "Successfully get all articles")
+	articles := models.GetAllArticle(limit, offset)
+	helpers.JSONSuccessResponse(w, articles, "Successfully get all articles")
 }
 

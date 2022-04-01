@@ -3,13 +3,12 @@ package schemas
 import "time"
 
 type Article struct {
-	ArticleID uint `json:"article_id"`
+	ID int `json:"id"`
+	AuthorID uint `json:"author_id"`
 	Title string `json:"title" binding:"required"`
-	Content string `json:"content" binding:"required"`
+	Content string `json:"content" binding:"required" gorm:"type:text" `
 	Category string `json:"category" binding:"required"`
-	CreatedDate time.Time `json:"created_date"`
-	UpdatedDate time.Time `json:"updated_date"`
+	CreatedDate time.Time `json:"-" gorm:"type:timestamp;default:current_timestamp"`
+	UpdatedDate time.Time `json:"-" gorm:"type:timestamp null"`
 	Status string `json:"status" binding:"required"`
-	AuthorName string `json:"author_name" binding:"required"`
-	Author *Author `*gorm:"foreignkey:AuthorID" json:"author,omitempty"`
 }

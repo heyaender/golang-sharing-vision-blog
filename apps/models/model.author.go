@@ -26,8 +26,8 @@ func GetAllAuthor(limit int, offset int) []schemas.Author {
 func GetAuthorByID(ID string) (schemas.Author, *gorm.DB) {
 	var authors schemas.Author
 	result := databases.DB.
-		Select("authors.id, authors.name, authors.username, authors.password").
-		// Joins("Article").
+		Select("authors.id, authors.name, authors.username, authors.password, Article.*").
+		Joins("Article").
 		Where("authors.id = ?", ID).
 		Find(&authors)
 	

@@ -5,5 +5,6 @@ type Author struct {
 	Name string `json:"name"`
 	Username string `json:"username"`
 	Password string `json:"password"`
-
+	Article *Article `gorm:"foreignkey:AuthorID" json:"article,omitempty"`
+	// Article []Article `gorm:"foreignkey:AuthorID;association_foreignkey:ID" json:"article"`
 }
