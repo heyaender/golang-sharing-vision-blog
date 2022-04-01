@@ -3,10 +3,10 @@ package authors
 import (
 	"encoding/json"
 	"net/http"
-	"sv-article/pkg/databases"
-	"sv-article/pkg/helpers"
-	"sv-article/pkg/models"
-	"sv-article/pkg/schemas"
+	"sv-article/apps/models"
+	"sv-article/databases"
+	"sv-article/helpers"
+	"sv-article/schemas"
 
 	"github.com/gorilla/mux"
 )

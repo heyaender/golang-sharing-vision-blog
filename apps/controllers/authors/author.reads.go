@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"net/http"
 	"strconv"
-	"sv-article/pkg/helpers"
-	"sv-article/pkg/models"
+	"sv-article/apps/models"
+	"sv-article/helpers"
 )
 
 func GetAllAuthor(w http.ResponseWriter, r *http.Request) {

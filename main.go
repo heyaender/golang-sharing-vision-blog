@@ -1,7 +1,7 @@
 package main
 
 import (
-	"sv-article/pkg/databases"
+	"sv-article/databases"
 	"sv-article/routes"
 )
 

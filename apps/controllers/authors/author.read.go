@@ -3,13 +3,13 @@ package authors
 import (
 	"fmt"
 	"net/http"
-	"sv-article/pkg/helpers"
-	"sv-article/pkg/models"
+	"sv-article/apps/models"
+	"sv-article/helpers"
 
 	"github.com/gorilla/mux"
 )
 
-func GetAuthorByID (w http.ResponseWriter, r *http.Request) {
+func GetAuthorByID(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	ID := vars["id"]
 

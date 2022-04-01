@@ -4,9 +4,9 @@ import (
 	"encoding/json"
 	"fmt"
 	"net/http"
-	"sv-article/pkg/helpers"
-	"sv-article/pkg/models"
-	"sv-article/pkg/schemas"
+	"sv-article/apps/models"
+	"sv-article/helpers"
+	"sv-article/schemas"
 )
 
 func CreateAuthor(w http.ResponseWriter, r *http.Request) {

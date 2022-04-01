@@ -1,8 +1,8 @@
 package models
 
 import (
-	"sv-article/pkg/databases"
-	"sv-article/pkg/schemas"
+	"sv-article/databases"
+	"sv-article/schemas"
 
 	"gorm.io/gorm"
 )

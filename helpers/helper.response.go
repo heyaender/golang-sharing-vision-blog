@@ -3,7 +3,7 @@ package helpers
 import (
 	"encoding/json"
 	"net/http"
-	"sv-article/pkg/schemas"
+	"sv-article/schemas"
 )
 
 func JSONSuccessResponse(w http.ResponseWriter, Data interface{}, message string) {

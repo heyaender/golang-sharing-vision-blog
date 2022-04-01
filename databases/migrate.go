@@ -2,7 +2,7 @@ package databases
 
 import (
 	"fmt"
-	"sv-article/pkg/schemas"
+	"sv-article/schemas"
 )
 
 func DBMigrate() {

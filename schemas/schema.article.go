@@ -10,4 +10,6 @@ type Article struct {
 	CreatedDate time.Time `json:"created_date"`
 	UpdatedDate time.Time `json:"updated_date"`
 	Status string `json:"status" binding:"required"`
+	AuthorName string `json:"author_name" binding:"required"`
+	Author *Author `*gorm:"foreignkey:AuthorID" json:"author,omitempty"`
 }

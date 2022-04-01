@@ -3,7 +3,7 @@ package databases
 import (
 	"fmt"
 	"log"
-	"sv-article/pkg/configs"
+	"sv-article/configs"
 
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"

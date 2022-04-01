@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 	"net/http"
-	"sv-article/pkg/configs"
+	"sv-article/configs"
 
 	"github.com/rs/cors"
 )
