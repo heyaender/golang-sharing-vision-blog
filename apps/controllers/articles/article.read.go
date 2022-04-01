@@ -27,9 +27,9 @@ func GetArticleByStatus(w http.ResponseWriter, r *http.Request) {
 	vars := mux.Vars(r)
 	status := vars["status"]
 
-	articles, result := models.GetArticleByStatus(status)
-	if result.RowsAffected > 0 {
-		helpers.JSONSuccessResponse(w, articles, "Article found")
+	article, result := models.GetArticleByStatus(status)
+	if result.RowsAffected == 1 {
+		helpers.JSONSuccessResponse(w, article, "Article found")
 	} else {
 		helpers.JSONErrorResponse(w, http.StatusNotFound, "Article not found")
 	}

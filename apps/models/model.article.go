@@ -26,9 +26,8 @@ func GetAllArticle(limit int, offset int) []schemas.Article {
 func GetArticleByID(ID string) (schemas.Article, *gorm.DB) {
 	var article schemas.Article
 	result := databases.DB.
-		Select("articles.id, articles.title, articles.content, articles.category, articles.created_date, articles.status").
-		Joins("Author").
-		Where("articles.id = ?", ID).
+		Select("id, title, content, category, created_date, status, author_id").
+		Where("id = ?", ID).
 		Find(&article)
 
 	return article, result
