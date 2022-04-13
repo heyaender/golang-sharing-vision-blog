@@ -25,5 +25,4 @@ func MySQLConnect() {
 	}
 
 	DBMigrate()
-
 }
