@@ -1,7 +1,6 @@
 package databases
 
 import (
-	"fmt"
 	"log"
 	"sv-article/configs"
 
@@ -10,14 +9,14 @@ import (
 )
 
 var (
-	DB *gorm.DB
+	DB  *gorm.DB
 	err error
 )
 
 func MySQLConnect() {
-	dsn := fmt.Sprintf("%v:%v@/%v?charset=utf8&parseTime=True", configs.DB_USER, configs.DB_PASSWORD, configs.DB_NAME)
-	DB, err = gorm.Open(mysql.Open(dsn), &gorm.Config{})
-	
+
+	DB, err = gorm.Open(mysql.Open(configs.DB_USER+":"+configs.DB_PASSWORD+"@tcp("+configs.DB_HOST+")/"+configs.DB_NAME+"?charset=utf8&parseTime=True&loc=Local"), &gorm.Config{})
+
 	if err != nil {
 		log.Println("DB Connection Error: ")
 	} else {
